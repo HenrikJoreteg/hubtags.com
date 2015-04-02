@@ -80,5 +80,7 @@ Bu...bu...bu... but you're building apps that *require* JavaScript?! Yes, I expl
 
 I'm teaching several workshops on building static Native Web Apps, such as [FluentConf](http://fluentconf.com/javascript-html-2015/public/content/native-web-application), [Future Insights Live](https://futureinsightslive.com/las-vegas-2015/schedule), [edUi](http://eduiconf.org/speakers/henrik-joreteg/), and [FrontendMasters](https://frontendmasters.com/).
 
-You can also follow me on Twitter: [@HenrikJoreteg](http://twitter.com/henrikjoreteg)
+I wrote a book called [Human JavaScript](http://humanjavascript.com/), and I'm working on a second edition covering tools/approaches introduced here.
+
+You can also follow me on Twitter: [@HenrikJoreteg](http://twitter.com/henrikjoreteg).
 
