@@ -14,6 +14,12 @@ When you run it using `npm start` it will be in development mode which means sty
 
 When you run `npm build` a static site gets created ins `/public` which can be deployed to surge using `npm run yolo` (You'll have to change the domain option in `package.json` to run that script since you don't have permission to deploy to the production domain).
 
+## Attempting to simplify dev experience
+
+As much as possible, I'm trying to make the tools get out of our way.
+
+Just run `npm start`, write your code in the `src` directory (feel free to use ES6 and JSX), and run a simple deploy script to go live.
+
 ## Features/Tools
 
 At the end of the day, the goal of all this is to optimize the experience of developing a high quality [Native Web App](http://blog.andyet.com/2015/01/22/native-web-apps).
