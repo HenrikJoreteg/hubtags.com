@@ -1,12 +1,12 @@
-# LabelFor.me
+# HubTags.com
 
-Live site: [http://labelfor.me](http://labelfor.me/)
+Live site: [http://hubtags.com](http://hubtags.com/)
 
 Sample app built using [Ampersand.js](http://ampersandjs.com/) using [React](http://facebook.github.io/react/) as a view layer.
 
 This app lets you log in with GitHub and view/edit labels for your repos.
 
-It's compiled into a completely static site and deployed to [LabelFor.me](http://labelfor.me/) staticly using [Surge.sh](http://surge.sh/).
+It's compiled into a completely static site and deployed to [HubTags.com](http://hubtags.com/) staticly using [Surge.sh](http://surge.sh/).
 
 ## Running it
 
@@ -72,8 +72,8 @@ Here's what it uses:
 ## Running it
 
 ```
-git clone git@github.com:HenrikJoreteg/labelfor.me.git
-cd labelfor.me
+git clone git@github.com:HenrikJoreteg/hubtags.com.git
+cd hubtags.com
 npm i
 npm start
 ```

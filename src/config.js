@@ -9,14 +9,14 @@ let config = {
 }
 
 if (config.isDev) {
-  config.tokenUrl = 'https://labelforme-dev.herokuapp.com/authenticate'
+  config.tokenUrl = 'https://hubtags-dev.herokuapp.com/authenticate'
   config.githubAuthUrl = 'https://github.com/login/oauth/authorize?' + qs.stringify({
     scopes: config.scopes,
     redirect_uri: origin + '/auth/callback',
     client_id: '34d32bcd940626d0d6f3'
   })
 } else {
-  config.tokenUrl = 'https://labelforme.herokuapp.com/authenticate'
+  config.tokenUrl = 'https://hubtags.herokuapp.com/authenticate'
   config.githubAuthUrl = 'https://github.com/login/oauth/authorize?' + qs.stringify({
     scopes: config.scopes,
     redirect_uri: origin + '/auth/callback',

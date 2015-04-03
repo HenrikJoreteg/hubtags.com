@@ -1,5 +1,5 @@
 {
-  "name": "labelforme",
+  "name": "hubtags",
   "version": "1.4.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "dependencies": {
@@ -43,11 +43,11 @@
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
-    "deploy": "surge -p public -d labelfor.me",
+    "deploy": "surge -p public -d hubtags.com",
     "prebuild": "rm -rf ./public && mkdir public",
     "start": "hjs-dev-server",
     "test": "standard",
-    "yolo": "npm run test && npm version minor && git push origin master --tags && npm run build && surge -p public -d labelfor.me"
+    "yolo": "npm run test && npm version minor && git push origin master --tags && npm run build && npm run deploy"
   },
   "standard": {
     "ignore": [
