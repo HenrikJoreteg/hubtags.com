@@ -10,14 +10,15 @@ export default React.createClass({
   },
   render () {
     return (
-      <div className="container">
-        <header role="banner">
-          <h1>LabelFor.me</h1>
-          <p>Don&apos;t even try to label me, yo. Or do and see if I care. Whatevs.&trade;</p>
+      <div className='container'>
+        <header role='banner'>
+          <h1>HubTags</h1>
+          <p>Open source demo app, built with Ampersand.js and React by <a href='http://twitter.com/henrikjoreteg'>@HenrikJoreteg</a></p>
+          <p>Source <a href='https://github.com/henrikjoreteg/hubtags.com'>available on GitHub</a>.</p>
         </header>
         <div>
-          <a href="/login" onClick={this.onLoginClick} className="button button-large">
-            <span className="mega-octicon octicon-mark-github"></span> Login with GitHub
+          <a href='/login' onClick={this.onLoginClick} className='button button-large'>
+            <span className='mega-octicon octicon-mark-github'></span> Login with GitHub
           </a>
         </div>
       </div>
