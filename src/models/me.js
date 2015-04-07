@@ -34,8 +34,8 @@ export default Model.extend(cacheMixin, githubMixin, {
     repos: RepoCollection
   },
 
-  onLoginChange () {
-    if (this.loggedIn) {
+  onLoginChange (model, val) {
+    if (val) {
       this.fetch()
     } else {
       // wipe local data
