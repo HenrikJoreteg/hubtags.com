@@ -2,6 +2,7 @@ import React from 'react'
 
 export default React.createClass({
   displayName: 'RepoItem',
+
   render () {
     const {full_name, app_url} = this.props
     return (

@@ -4,10 +4,12 @@ import localLinks from 'local-links'
 
 export default React.createClass({
   displayName: 'PublicPage',
+
   onLoginClick (event) {
     event.preventDefault()
     app.router.history.navigate('/login', { trigger: true })
   },
+
   render () {
     return (
       <div className='container'>

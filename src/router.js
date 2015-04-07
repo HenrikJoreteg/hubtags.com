@@ -10,42 +10,59 @@ import RepoDetailPage from './pages/repo-detail'
 import MessagePage from './pages/message'
 import PublicPage from './pages/public'
 
+function auth (name) {
+  return function () {
+    if (app.me.loggedIn) {
+      this[name].apply(this, arguments)
+    } else {
+      this.redirectTo('/')
+    }
+  }
+}
+
 export default Router.extend({
   renderPage (Page, opts = {}) {
     const main = (
       <Layout me={app.me}>
-        <Page me={app.me} {...opts}/>
+        <Page {...opts}/>
       </Layout>
     )
 
     React.render(main, document.body)
   },
+
   routes: {
     '': 'home',
-    'repos': 'repos',
+    'repos': auth('repos'),
     'login': 'login',
     'logout': 'logout',
     'auth/callback': 'authCallback',
-    'repo/:owner/:reponame': 'repoDetail',
+    'repo/:owner/:reponame': auth('repoDetail'),
     '*404': 'fourOhFour'
   },
+
   home () {
     React.render(<PublicPage/>, document.body)
   },
+
   repos () {
     this.renderPage(HomePage, {repos: app.me.repos})
   },
+
   repoDetail (owner, repoName) {
     const repo = app.me.repos.getModelByName(owner + '/' + repoName)
     this.renderPage(RepoDetailPage, {repo: repo, labels: repo.labels})
   },
+
   login () {
     window.location = config.githubAuthUrl
   },
+
   logout () {
-    app.me.token = ''
+    app.me.clear()
     this.redirectTo('/')
   },
+
   authCallback () {
     const code = qs.parse(window.location.search.slice(1)).code
 
@@ -63,6 +80,7 @@ export default Router.extend({
       this.redirectTo('/repos')
     })
   },
+
   fourOhFour () {
     this.renderPage(MessagePage, {title: '404', message: 'Nothing to see here, sorry.'})
   }

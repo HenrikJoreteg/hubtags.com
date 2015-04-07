@@ -4,7 +4,9 @@ import assign from 'lodash.assign'
 
 export default React.createClass({
   mixins: [ampersandMixin],
+
   displayName: 'Label',
+
   getInitialState () {
     const {name, color} = this.props.label
     return {
@@ -12,27 +14,33 @@ export default React.createClass({
       color: color
     }
   },
+
   propTypes: {
     label: React.PropTypes.object.isRequired
   },
+
   onChangeName (event) {
     const input = event.target
     let res = {}
     res[input.name] = input.value
     this.setState(res)
   },
+
   onChangeColor (event) {
     const color = event.target.value
     this.setState({color: color.slice(1)})
   },
+
   onDeleteClick (event) {
     this.props.label.destroy()
     event.preventDefault()
   },
+
   onToggleEditClick (event) {
     const {label} = this.props
     label.editing = !label.editing
   },
+
   onSubmit (e) {
     e.preventDefault()
     const {label} = this.props
@@ -42,6 +50,7 @@ export default React.createClass({
       label.save(assign({editing: false}, this.state))
     }
   },
+
   render () {
     const {color, name} = this.state
     const cssColor = '#' + color

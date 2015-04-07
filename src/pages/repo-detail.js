@@ -4,16 +4,20 @@ import Label from '../views/label'
 
 export default React.createClass({
   mixins: [ampersandMixin],
+
   displayName: 'RepoDetailPage',
+
   propTypes: {
     repo: React.PropTypes.object.isRequired
   },
+
   onAddClick () {
     this.props.repo.labels.add({
       saved: false,
       editing: true
     }, {at: 0})
   },
+
   render () {
     const {repo} = this.props
 

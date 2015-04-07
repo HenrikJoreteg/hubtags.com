@@ -4,6 +4,7 @@ import xhr from '../helpers/github-xhr'
 
 export default Model.extend(githubMixin, {
   idAttribute: 'name',
+
   props: {
     name: 'string',
     color: {
@@ -11,6 +12,7 @@ export default Model.extend(githubMixin, {
       default: '000000'
     }
   },
+
   session: {
     saved: {
       type: 'boolean',
@@ -21,9 +23,11 @@ export default Model.extend(githubMixin, {
       default: false
     }
   },
+
   isNew () {
     return this.saved
   },
+
   update (attrs) {
     const old = this.toJSON()
     xhr({

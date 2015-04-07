@@ -5,7 +5,9 @@ import ampersandMixin from 'ampersand-react-mixin'
 
 export default React.createClass({
   mixins: [ampersandMixin],
+
   displayName: 'Layout',
+
   onClick (event) {
     var pathname = localLinks.getLocalPathname(event)
     if (pathname) {
@@ -13,6 +15,7 @@ export default React.createClass({
       app.router.history.navigate(pathname, { trigger: true })
     }
   },
+
   render () {
     const {me} = this.props
     return (

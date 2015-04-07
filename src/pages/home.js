@@ -4,13 +4,17 @@ import RepoItem from '../views/repo-item'
 
 export default React.createClass({
   mixins: [ampersandMixin],
+
   displayName: 'Repos',
+
   propTypes: {
     repos: React.PropTypes.object.isRequired
   },
+
   componentWillMount () {
     this.props.repos.fetch()
   },
+
   render () {
     const {repos} = this.props
 
