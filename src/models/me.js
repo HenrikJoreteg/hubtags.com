@@ -13,7 +13,7 @@ export default Model.extend(cacheMixin, githubMixin, {
       ttl: ms.days(30),
       tts: ms.minutes(10)
     })
-    this.on('stale', this.fetch)
+    this.on('stale', this.onStale, this)
     this.on('change', this.writeToStorage, this)
     this.on('change:login', this.onLoginChange, this)
   },
@@ -32,6 +32,12 @@ export default Model.extend(cacheMixin, githubMixin, {
 
   collections: {
     repos: RepoCollection
+  },
+
+  onStale () {
+    if (this.loggedIn) {
+      this.fetch()
+    }
   },
 
   onLoginChange (model, val) {
