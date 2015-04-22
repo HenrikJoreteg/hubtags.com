@@ -70,8 +70,8 @@ export default React.createClass({
         <div className='label'>
           <span className='label-color' style={{backgroundColor: cssColor}}>&nbsp;</span>
           <span>{name}</span>
-          <span className='octicon octicon-pencil' onClick={this.onToggleEditClick}></span>
-          <span className='octicon octicon-x' onClick={this.onDeleteClick}></span>
+          <a href='#' onClick={this.onToggleEditClick}><span className='octicon octicon-pencil'></span></a>
+          <a href='#' onClick={this.onDeleteClick}><span className='octicon octicon-x'></span></a>
         </div>
       )
     }
