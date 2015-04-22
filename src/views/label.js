@@ -60,17 +60,23 @@ export default React.createClass({
 
     if (this.props.label.editing) {
       content = (
-        <form onSubmit={this.onSubmit} className='label'>
+        <form onSubmit={this.onSubmit} className='label-form form-inline'>
           <span className='label-color' style={{backgroundColor: cssColor}}>&nbsp;</span>
-          <input value={name} onChange={this.onChangeName} name='name'/>
-          <input value={cssColor} onChange={this.onChangeColor} name='color'/>
-          <button type='submit' className='button button-small'>Save</button>
-          <button onClick={this.onToggleEditClick} type='button' className='button button-small button-unstyled'>cancel</button>
+          <div className='form-element'>
+            <label htmlFor='name'>name</label>
+            <input value={name} onChange={this.onChangeName} name='name' className='form-input'/>
+          </div>
+          <div className='form-element'>
+            <label htmlFor='name'>color</label>
+            <input value={name} onChange={this.onChangeColor} name='color' className='form-input'/>
+          </div>
+          <button type='submit' className='button button'>Save</button>
+          <button onClick={this.onToggleEditClick} type='button' className='button button-unstyled'>cancel</button>
         </form>
       )
     } else {
       content = (
-        <div className='label'>
+        <div className='label-view'>
           <span className='label-color' style={{backgroundColor: cssColor}}>&nbsp;</span>
           <span>{name}</span>
           <a href='#' onClick={this.onToggleEditClick}><span className='octicon octicon-pencil'></span></a>
