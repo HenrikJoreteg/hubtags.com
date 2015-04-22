@@ -59,8 +59,8 @@ export default Router.extend({
   },
 
   logout () {
-    app.me.clear()
-    this.redirectTo('/')
+    window.localStorage.clear()
+    window.location = '/'
   },
 
   authCallback () {

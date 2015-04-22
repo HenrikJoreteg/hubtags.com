@@ -8,14 +8,19 @@ export default Model.extend(cacheMixin, githubMixin, {
   url: 'https://api.github.com/user',
 
   initialize () {
-    this.initStorage({
-      storageKey: 'me',
-      ttl: ms.days(30),
-      tts: ms.minutes(10)
+    const token = window.localStorage.token
+
+    if (token) {
+      this.token = token
+    }
+
+    this.on('change:isLoggedIn', this.fetchAll)
+
+    this.on('change:token', () => {
+      window.localStorage.token = this.token
     })
-    this.on('stale', this.onStale, this)
-    this.on('change', this.writeToStorage, this)
-    this.on('change:login', this.onLoginChange, this)
+
+    this.on('change:loggedIn', this.onLoginChange, this)
   },
 
   props: {
@@ -32,12 +37,6 @@ export default Model.extend(cacheMixin, githubMixin, {
 
   collections: {
     repos: RepoCollection
-  },
-
-  onStale () {
-    if (this.loggedIn) {
-      this.fetch()
-    }
   },
 
   onLoginChange (model, val) {

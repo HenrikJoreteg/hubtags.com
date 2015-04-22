@@ -68,7 +68,7 @@ export default React.createClass({
           </div>
           <div className='form-element'>
             <label htmlFor='name'>color</label>
-            <input value={name} onChange={this.onChangeColor} name='color' className='form-input'/>
+            <input value={cssColor} onChange={this.onChangeColor} name='color' className='form-input'/>
           </div>
           <button type='submit' className='button button'>Save</button>
           <button onClick={this.onToggleEditClick} type='button' className='button button-unstyled'>cancel</button>

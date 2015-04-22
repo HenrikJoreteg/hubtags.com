@@ -46,7 +46,6 @@ Here's what it uses:
 - Written in ES6+, compiled with [Babel.js](https://babeljs.io/)
 - Uses these [Ampersand Modules](http://ampersandjs.com/):
   - ampersand-app
-  - ampersand-local-cache-mixin
   - ampersand-model
   - ampersand-react-mixin
   - ampersand-rest-collection
