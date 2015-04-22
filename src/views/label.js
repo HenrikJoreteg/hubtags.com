@@ -37,6 +37,7 @@ export default React.createClass({
   },
 
   onToggleEditClick (event) {
+    event.preventDefault()
     const {label} = this.props
     label.editing = !label.editing
   },
