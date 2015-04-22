@@ -7,7 +7,7 @@ export default React.createClass({
 
   onLoginClick (event) {
     event.preventDefault()
-    app.router.history.navigate('/login', { trigger: true })
+    app.router.history.navigate('/login')
   },
 
   render () {

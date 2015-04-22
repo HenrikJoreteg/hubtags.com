@@ -40,6 +40,11 @@ export default React.createClass({
     event.preventDefault()
     const {label} = this.props
     label.editing = !label.editing
+    if (label.saved) {
+      this.setState(this.getInitialState())
+    } else {
+      label.collection.remove(label)
+    }
   },
 
   onSubmit (e) {

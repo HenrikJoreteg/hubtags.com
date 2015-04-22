@@ -1,6 +1,6 @@
 import React from 'react'
 import ampersandMixin from 'ampersand-react-mixin'
-import RepoItem from '../views/repo-item'
+import RepoItem from '../components/repo-item'
 
 export default React.createClass({
   mixins: [ampersandMixin],

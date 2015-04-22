@@ -1,6 +1,6 @@
 import React from 'react'
 import ampersandMixin from 'ampersand-react-mixin'
-import Label from '../views/label'
+import Label from '../components/label'
 
 export default React.createClass({
   mixins: [ampersandMixin],
