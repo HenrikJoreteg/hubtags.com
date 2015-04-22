@@ -47,16 +47,18 @@ export default React.createClass({
     if (label.saved) {
       label.update(this.state)
     } else {
-      label.save(assign({editing: false}, this.state))
+      label.save(this.state)
     }
+    label.editing = false
   },
 
   render () {
     const {color, name} = this.state
     const cssColor = '#' + color
+    let content
 
     if (this.props.label.editing) {
-      return (
+      content = (
         <form onSubmit={this.onSubmit} className='label'>
           <span className='label-color' style={{backgroundColor: cssColor}}>&nbsp;</span>
           <input value={name} onChange={this.onChangeName} name='name'/>
@@ -66,7 +68,7 @@ export default React.createClass({
         </form>
       )
     } else {
-      return (
+      content = (
         <div className='label'>
           <span className='label-color' style={{backgroundColor: cssColor}}>&nbsp;</span>
           <span>{name}</span>
@@ -75,5 +77,7 @@ export default React.createClass({
         </div>
       )
     }
+
+    return <div>{content}</div>
   }
 })

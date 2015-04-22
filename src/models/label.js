@@ -25,13 +25,13 @@ export default Model.extend(githubMixin, {
   },
 
   isNew () {
-    return this.saved
+    return !this.saved
   },
 
   update (attrs) {
     const old = this.toJSON()
     xhr({
-      url: this.url(),
+      url: this.url() + '/' + this.name,
       method: 'PATCH',
       json: attrs
     }, (err) => {
