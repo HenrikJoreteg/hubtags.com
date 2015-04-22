@@ -30,8 +30,9 @@ export default Model.extend(githubMixin, {
 
   update (attrs) {
     const old = this.toJSON()
+
     xhr({
-      url: this.url() + '/' + this.name,
+      url: this.url(),
       method: 'PATCH',
       json: attrs
     }, (err) => {
