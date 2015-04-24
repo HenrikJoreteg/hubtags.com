@@ -4,6 +4,7 @@
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "dependencies": {
     "ampersand-app": "^1.0.1",
+    "ampersand-local-cache-mixin": "^3.0.0",
     "ampersand-model": "^5.0.1",
     "ampersand-react-mixin": "^0.1.1",
     "ampersand-rest-collection": "^3.0.0",
