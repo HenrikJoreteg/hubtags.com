@@ -1,10 +1,9 @@
 import Model from 'ampersand-model'
 import ms from 'milliseconds'
-import cacheMixin from 'ampersand-local-cache-mixin'
 import githubMixin from '../helpers/github-mixin'
 import RepoCollection from './repo-collection'
 
-export default Model.extend(cacheMixin, githubMixin, {
+export default Model.extend(githubMixin, {
   url: 'https://api.github.com/user',
 
   initialize () {
