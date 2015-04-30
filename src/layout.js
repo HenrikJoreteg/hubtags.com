@@ -8,6 +8,11 @@ export default React.createClass({
 
   displayName: 'Layout',
 
+  propTypes: {
+    me: React.PropTypes.object.isRequired,
+    children: React.PropTypes.element.isRequired
+  },
+
   onClick (event) {
     var pathname = localLinks.getLocalPathname(event)
     if (pathname) {

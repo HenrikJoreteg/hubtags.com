@@ -41,7 +41,7 @@ export default React.createClass({
       <div>
         <h3>{repo.full_name} Labels</h3>
         <p>
-          <button className="button" onClick={this.onAddClick}><span className="octicon octicon-plus"></span> Add New</button>
+          <button className='button' onClick={this.onAddClick}><span className='octicon octicon-plus'></span> Add New</button>
         </p>
         <ul>
           {list}
