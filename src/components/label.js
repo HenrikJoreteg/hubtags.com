@@ -20,15 +20,15 @@ export default React.createClass({
   },
 
   onChangeName (event) {
-    const input = event.target
-    let res = {}
-    res[input.name] = input.value
-    this.setState(res)
+    this.setState({
+      name: event.target.value
+    })
   },
 
   onChangeColor (event) {
-    const color = event.target.value
-    this.setState({color: color.slice(1)})
+    this.setState({
+      color: event.target.value.slice(1)
+    })
   },
 
   onDeleteClick (event) {
@@ -65,7 +65,7 @@ export default React.createClass({
 
     if (this.props.label.editing) {
       content = (
-        <form onSubmit={this.onSubmit} className='label-form form-inline'>
+        <form onSubmit={this.onSubmit} className='label-form'>
           <span className='label-color' style={{backgroundColor: cssColor}}>&nbsp;</span>
           <div className='form-element'>
             <label htmlFor='name'>name</label>
