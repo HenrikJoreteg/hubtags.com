@@ -14,7 +14,7 @@ export default React.createClass({
     return (
       <div className='container'>
         <header role='banner'>
-          <h1>HubTags</h1>
+          <h1>Hi, Seattle</h1>
         </header>
         <div>
           <p>Open source app for managing your tags (labels) on GitHub.com. Built with Ampersand.js and React by <a href='http://twitter.com/henrikjoreteg'>@HenrikJoreteg</a></p>
