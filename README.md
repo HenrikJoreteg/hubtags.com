@@ -10,9 +10,31 @@ It's compiled into a completely static site and deployed to [HubTags.com](http:/
 
 ## Running it
 
+You'll need [Node.js](http://nodejs.org/) installed first.
+
+To get download and install everything:
+
+```
+git clone https://github.com/HenrikJoreteg/hubtags.com.git
+cd hubtags.com
+npm install
+```
+
+To run in development mode:
+
+```
+npm start
+```
+
 When you run it using `npm start` it will be in development mode which means styles and React components are hotloaded without needing any browser extensions, simply make changes in your editor and save.
 
-When you run `npm build` a static site gets created ins `/public` which can be deployed to surge using `npm run yolo` (You'll have to change the domain option in `package.json` to run that script since you don't have permission to deploy to the production domain).
+To build:
+
+```
+npm run build
+```
+
+When you run `npm run build` a static site gets created ins `/public` which can be deployed to surge using `npm run yolo` (You'll have to change the domain option in `package.json` to run that script since you don't have permission to deploy to the production domain).
 
 ## Attempting to simplify dev experience
 
