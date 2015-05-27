@@ -14,7 +14,7 @@
     "babel-loader": "^4.3.0",
     "css-loader": "^0.9.1",
     "file-loader": "^0.8.1",
-    "hjs-webpack": "^2.0.0",
+    "hjs-webpack": "^2.3.0",
     "local-links": "^1.3.0",
     "lodash.assign": "^3.0.0",
     "lodash.has": "^3.0.0",
@@ -37,13 +37,12 @@
     "xhr": "^2.0.1",
     "yeticss": "^6.0.2"
   },
-  "private": true,
   "license": "MIT",
   "main": "index.js",
+  "private": true,
   "scripts": {
-    "build": "NODE_ENV=production webpack",
+    "build": "webpack",
     "deploy": "surge -p public -d hubtags.com",
-    "prebuild": "rm -rf ./public && mkdir public",
     "start": "webpack-dev-server",
     "test": "standard",
     "yolo": "npm run test && npm version minor && git push origin master --tags && npm run build && npm run deploy"
