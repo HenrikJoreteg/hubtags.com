@@ -1,6 +1,5 @@
 import app from 'ampersand-app'
 import React from 'react'
-import localLinks from 'local-links'
 
 export default React.createClass({
   displayName: 'PublicPage',

@@ -1,8 +1,10 @@
 import app from 'ampersand-app'
 import Router from './router'
 import Me from './models/me'
-import styles from './styles/main.styl'
-import octicons from 'octicons/octicons/octicons.css'
+
+// webpack lets us include styles like this
+require('./styles/main.styl')
+require('octicons/octicons/octicons.css')
 
 window.app = app.extend({
   init () {

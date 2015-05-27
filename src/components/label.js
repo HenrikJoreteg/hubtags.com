@@ -1,6 +1,5 @@
 import React from 'react'
 import ampersandMixin from 'ampersand-react-mixin'
-import assign from 'lodash.assign'
 
 export default React.createClass({
   mixins: [ampersandMixin],

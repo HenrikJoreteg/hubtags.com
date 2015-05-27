@@ -1,5 +1,4 @@
 import Model from 'ampersand-model'
-import ms from 'milliseconds'
 import githubMixin from '../helpers/github-mixin'
 import RepoCollection from './repo-collection'
 
