@@ -30,7 +30,7 @@
     "standard": "^3.3.0",
     "style-loader": "^0.9.0",
     "stylus-loader": "^1.0.0",
-    "surge": "^0.8.1",
+    "surge": "^0.13.0",
     "url-loader": "^0.5.5",
     "webpack": "^1.7.3",
     "webpack-dev-server": "^1.8.0",

@@ -84,7 +84,7 @@ Here's what it uses:
 - Uses [autoprefixer-stylus](https://www.npmjs.com/package/autoprefixer-stylus) to seemlessly insert those pesky `-moz`, `-webkit` prefixes where required.
 - Use GitHub's [Octicon](https://octicons.github.com/) icon set
   - Installed via npm just like other assets.
-  - required in `/src/app.js` with this line `import octicons from 'octicons/octicons/octicons.css'`
+  - required in `/src/app.js` with this line `require('octicons/octicons/octicons.css')`
   - Thanks to the [webpack file-loader](https://github.com/webpack/file-loader#file-loader-for-webpack) as configured in [hjs-webpack](https://github.com/henrikjoreteg/hjs-webpack) the icon fonts are inlined as base64 so you don't have to think about relative URLs in CSS. No manually copying assets into output directory needed, just npm install and require CSS.
 - We use React as the view layer.
 - We do partial isomorphic rendering by statically pre-rendering the React component used for layout on the front end, as well as the logged out homepage view. So, most of the benefits of isomorphic apps, but none of the complexity of trying to dynamically render client code on the server.
