@@ -6,43 +6,29 @@ export default Model.extend(githubMixin, {
   url: 'https://api.github.com/user',
 
   initialize () {
-    const token = window.localStorage.token
-
-    if (token) {
-      this.token = token
-    }
-
-    this.on('change:isLoggedIn', this.fetchAll)
-
-    this.on('change:token', () => {
-      window.localStorage.token = this.token
-    })
-
-    this.on('change:loggedIn', this.onLoginChange, this)
+    this.token = window.localStorage.token
+    this.on('change:token', this.onTokenChange)
   },
 
   props: {
     token: 'string',
     login: 'string',
-    'avatar_url': 'string'
-  },
-
-  derived: {
-    loggedIn () {
-      return !!this.token
-    }
+    avatar_url: 'string'
   },
 
   collections: {
     repos: RepoCollection
   },
 
-  onLoginChange (model, val) {
-    if (val) {
+  onChangeToken () {
+    window.localStorage.token = this.token
+    this.fetchInitialData()
+  },
+
+  fetchInitialData () {
+    if (this.token) {
       this.fetch()
-    } else {
-      // wipe local data
-      window.localStorage.clear()
+      this.repos.fetch()
     }
   }
 })

@@ -12,7 +12,7 @@ import PublicPage from './pages/public'
 
 function auth (name) {
   return function () {
-    if (app.me.loggedIn) {
+    if (app.me.token) {
       this[name].apply(this, arguments)
     } else {
       this.redirectTo('/')
@@ -21,14 +21,16 @@ function auth (name) {
 }
 
 export default Router.extend({
-  renderPage (Page, opts = {}) {
-    const main = (
-      <Layout me={app.me}>
-        <Page {...opts}/>
-      </Layout>
-    )
+  renderPage (page, opts = {layout: true}) {
+    if (opts.layout) {
+      page = (
+        <Layout me={app.me}>
+          {page}
+        </Layout>
+      )
+    }
 
-    React.render(main, document.body)
+    React.render(page, document.body)
   },
 
   routes: {
@@ -36,26 +38,30 @@ export default Router.extend({
     'repos': auth('repos'),
     'login': 'login',
     'logout': 'logout',
-    'auth/callback': 'authCallback',
+    'auth/callback?:query': 'authCallback',
     'repo/:owner/:reponame': auth('repoDetail'),
     '*404': 'fourOhFour'
   },
 
   home () {
-    React.render(<PublicPage/>, document.body)
+    this.renderPage(<PublicPage/>, {layout: false})
   },
 
   repos () {
-    this.renderPage(HomePage, {repos: app.me.repos})
+    this.renderPage(<HomePage repos={app.me.repos}/>)
   },
 
   repoDetail (owner, repoName) {
     const repo = app.me.repos.getModelByName(owner + '/' + repoName)
-    this.renderPage(RepoDetailPage, {repo: repo, labels: repo.labels})
+    this.renderPage(<RepoDetailPage repo={repo} labels={repo.labels}/>)
   },
 
   login () {
-    window.location = config.githubAuthUrl
+    window.location = 'https://github.com/login/oauth/authorize?' + qs.stringify({
+      client_id: config.clientId,
+      redirect_uri: window.location.origin + '/auth/callback',
+      scope: 'user,repo'
+    })
   },
 
   logout () {
@@ -63,25 +69,25 @@ export default Router.extend({
     window.location = '/'
   },
 
-  authCallback () {
-    const code = qs.parse(window.location.search.slice(1)).code
-
-    this.renderPage(MessagePage, {title: 'Loading...', message: 'Fetching Github Data'})
+  authCallback (query) {
+    query = qs.parse(query)
 
     xhr({
-      url: config.tokenUrl + '/' + code,
+      url: config.gatekeeperUrl + '/' + query.code,
       json: true
-    }, (err, resp, data) => {
+    }, (err, resp, body) => {
       if (err) {
-        console.error('could not get token', err, data)
+        console.error('could not get token', err, body)
       } else {
-        app.me.token = data.token
+        app.me.token = body.token
+        this.redirectTo('/repos')
       }
-      this.redirectTo('/repos')
     })
+
+    this.renderPage(<MessagePage title='Loading...' message='Fetching Github Data'/>)
   },
 
   fourOhFour () {
-    this.renderPage(MessagePage, {title: '404', message: 'Nothing to see here, sorry.'})
+    this.renderPage(<MessagePage title='404' message='Nothing to see here, sorry.'/>)
   }
 })

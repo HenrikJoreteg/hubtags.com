@@ -9,8 +9,9 @@ require('octicons/octicons/octicons.css')
 window.app = app.extend({
   init () {
     this.me = new Me()
+    this.me.fetchInitialData()
     this.router = new Router()
-    this.router.history.start({ pushState: true })
+    this.router.history.start()
   }
 })
 
