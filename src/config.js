@@ -4,7 +4,7 @@ const config = {
     gatekeeperUrl: 'https://hubtags-dev.herokuapp.com/authenticate'
   },
 
-  'labelr.surge.sh': {
+  'hubtags.com': {
     clientId: 'a921b2a8818253f83ec7',
     gatekeeperUrl: 'https://hubtags.herokuapp.com/authenticate'
   }
