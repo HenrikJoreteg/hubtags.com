@@ -20,7 +20,7 @@ export default Model.extend(githubMixin, {
     repos: RepoCollection
   },
 
-  onChangeToken () {
+  onTokenChange () {
     window.localStorage.token = this.token
     this.fetchInitialData()
   },
