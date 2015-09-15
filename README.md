@@ -75,7 +75,7 @@ Here's what it uses:
 - [Webpack](http://webpack.github.io/) powers the development server and build system, and has been configured with [hjs-webpack](https://github.com/henrikjoreteg/hjs-webpack)
   - Note that major dependencies of hjs-webpack, like webpack itself are all installed as `peerDependencies` to allow you to set the exact version you want to use.
   - Same is true of stuff like Babel and React
-- OAuth secrets are kept secret by using a free click-to-deploy instance of [gatekeeper](https://github.com/prose/gatekeeper#deploy-on-heroku) deployed to [Heroku](http://heroku.com). It's only job is to keep the Client Secret for the Github app, a secret.
+- OAuth secrets are kept secret by using a free click-to-deploy instance of [github-secret-keeper](https://github.com/HenrikJoreteg/github-secret-keeper#setting-it-up-on-heroku) deployed to [Heroku](http://heroku.com). It's only job is to keep the Client Secret for the Github app, a secret.
 - Backbutton and proper URLs are implemented with ampersand-router and made possible in a static site due to Surge's clever approach of using a `200.html` file at your root as the catchall (if present). You can learn more by [reading the surge intro post](https://medium.com/surge-sh/introducing-surge-the-cdn-for-front-end-developers-b4a50a61bcfc)
 - Uses [yeticss.com](http://yeticss.com/) for styles.
   - Stylsheets are imported (required) from within the application code just like JS (thanks webpack)

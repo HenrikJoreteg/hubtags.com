@@ -73,13 +73,13 @@ export default Router.extend({
     query = qs.parse(query)
 
     xhr({
-      url: config.gatekeeperUrl + '/' + query.code,
+      url: 'https://github-secret-keeper.herokuapp.com/' + config.clientId + '/' + query.code,
       json: true
     }, (err, resp, body) => {
       if (err) {
         console.error('could not get token', err, body)
       } else {
-        app.me.token = body.token
+        app.me.token = body.access_token
         this.redirectTo('/repos')
       }
     })
