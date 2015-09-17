@@ -1,6 +1,6 @@
 {
   "name": "hubtags",
-  "version": "1.31.0",
+  "version": "1.32.0",
   "author": "Henrik Joreteg <henrik@andyet.net>",
   "dependencies": {
     "ampersand-app": "^1.0.4",
